@@ -47,7 +47,11 @@
       text-align: center;
       margin-bottom: 20px;
     }
-    .timeline p {
+    .timeline ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .timeline li {
       margin: 10px 0;
       background: rgba(255,255,255,0.6);
       padding: 10px;
@@ -78,24 +82,24 @@
 
   <div class="timeline">
     <h2>✨ 2 Years of Us ✨</h2>
-    <p>💌 Our first date, a moment that changed everything.</li>
+    <ul>
+      <li>💌 Our first date, a moment that changed everything.</li>
       <li>🌸 Our first trip together, my best time.</li>
       <li>📞 Late night muted calls that made the distance feel smaller.</li>
-      <li>💙 Building dreams for our future, hand in hand.</p>
+      <li>💙 Building dreams for our future, hand in hand.</li>
+    </ul>
   </div>
 
   <h2>Our Moments Together 📸</h2>
   <div class="gallery">
-      <img src="https://raw.githubusercontent.com/vrruttii-gif/hbd-aani/16c7e1b45e1909d7b253d8b209e8c986693beffb/WhatsApp%20Image%202025-08-22%20at%2019.56.22%20(1).jpeg" alt="Memory 1">
-    <img src="https://raw.githubusercontent.com/vrruttii-gif/hbd-aani/16c7e1b45e1909d7b253d8b209e8c986693beffb/WhatsApp%20Image%202025-08-22%20at%2019.56.22.jpeg
-" alt="Memory 2">
-    <img src="https://raw.githubusercontent.com/vrruttii-gif/hbd-aani/16c7e1b45e1909d7b253d8b209e8c986693beffb/WhatsApp%20Image%202025-08-22%20at%2019.56.23.jpeg
-" alt="Memory 3">
+    <img src="https://raw.githubusercontent.com/vrruttii-gif/hbd-aani/16c7e1b45e1909d7b253d8b209e8c986693beffb/WhatsApp%20Image%202025-08-22%20at%2019.56.22%20(1).jpeg" alt="Memory 1">
+    <img src="https://raw.githubusercontent.com/vrruttii-gif/hbd-aani/16c7e1b45e1909d7b253d8b209e8c986693beffb/WhatsApp%20Image%202025-08-22%20at%2019.56.22.jpeg" alt="Memory 2">
+    <img src="https://raw.githubusercontent.com/vrruttii-gif/hbd-aani/16c7e1b45e1909d7b253d8b209e8c986693beffb/WhatsApp%20Image%202025-08-22%20at%2019.56.23.jpeg" alt="Memory 3">
   </div>
 
-  <audio autoplay loop>
-    <source src="https://raw.githubusercontent.com/vrruttii-gif/hbd-aani/16c7e1b45e1909d7b253d8b209e8c986693beffb/Elvis%20Presley%20-%20Can%27t%20Help%20Falling%20In%20Love%20(Official%20Audio).mp3
-" type="audio/mpeg">
+  <!-- Background Music -->
+  <audio id="bg-music" autoplay loop muted playsinline>
+    <source src="https://raw.githubusercontent.com/vrruttii-gif/hbd-aani/16c7e1b45e1909d7b253d8b209e8c986693beffb/Elvis%20Presley%20-%20Can%27t%20Help%20Falling%20In%20Love%20(Official%20Audio).mp3" type="audio/mpeg">
   </audio>
 
   <script>
@@ -118,9 +122,15 @@
         countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
       }
     }, 1000);
+
+    // Try to autoplay + unmute after load
+    window.addEventListener("DOMContentLoaded", () => {
+      const audio = document.getElementById("bg-music");
+      audio.muted = false;
+      audio.play().catch(err => {
+        console.log("Autoplay blocked:", err);
+      });
+    });
   </script>
 </body>
-
-
 </html>
-

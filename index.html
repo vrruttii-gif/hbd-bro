@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Aani 🎂❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, p {
+      animation: fadeIn 2s ease forwards;
+    }
+    .hero {
+      padding: 50px 20px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 20px;
+    }
+    .gallery img {
+      width: 220px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+    .countdown {
+      font-size: 1.5em;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+    .timeline {
+      max-width: 600px;
+      margin: 30px auto;
+      text-align: left;
+    }
+    .timeline h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .timeline p {
+      margin: 10px 0;
+      background: rgba(255,255,255,0.6);
+      padding: 10px;
+      border-radius: 8px;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Happy Birthday, Aani! 🎉❤️</h1>
+    <p>
+      Finally you are just 2 years younger than me. Happy birthday!  
+      Thank you for filling my life with laughter, love, and warmth.  
+      Distance may keep us apart, but my heart is always with you.  
+      I can’t wait for our forever. 💕
+    </p>
+    <h2>Countdown to Our Next Meet 💌</h2>
+    <div id="countdown" class="countdown"></div>
+  </div>
+
+  <div class="timeline">
+    <h2>✨ 2 Years of Us ✨</h2>
+    <p>💌 Our first date, a moment that changed everything.</li>
+      <li>🌸 Our first trip together, my best time.</li>
+      <li>📞 Late night muted calls that made the distance feel smaller.</li>
+      <li>💙 Building dreams for our future, hand in hand.</p>
+  </div>
+
+  <h2>Our Moments Together 📸</h2>
+  <div class="gallery">
+      <img src="https://raw.githubusercontent.com/vrruttii-gif/hbd-aani/16c7e1b45e1909d7b253d8b209e8c986693beffb/WhatsApp%20Image%202025-08-22%20at%2019.56.22%20(1).jpeg" alt="Memory 1">
+    <img src="https://raw.githubusercontent.com/vrruttii-gif/hbd-aani/16c7e1b45e1909d7b253d8b209e8c986693beffb/WhatsApp%20Image%202025-08-22%20at%2019.56.22.jpeg
+" alt="Memory 2">
+    <img src="https://raw.githubusercontent.com/vrruttii-gif/hbd-aani/16c7e1b45e1909d7b253d8b209e8c986693beffb/WhatsApp%20Image%202025-08-22%20at%2019.56.23.jpeg
+" alt="Memory 3">
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://raw.githubusercontent.com/vrruttii-gif/hbd-aani/16c7e1b45e1909d7b253d8b209e8c986693beffb/Elvis%20Presley%20-%20Can%27t%20Help%20Falling%20In%20Love%20(Official%20Audio).mp3
+" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Countdown Timer
+    const countDownDate = new Date("Feb 14, 2027 00:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        countdown.innerHTML = "Finally together ❤️";
+      } else {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+    }, 1000);
+  </script>
+</body>
+
+</html>

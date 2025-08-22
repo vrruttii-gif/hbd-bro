@@ -57,6 +57,22 @@
       padding: 10px;
       border-radius: 8px;
     }
+    /* Music Button Styling */
+    #playBtn {
+      margin: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #ff6f91;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+    #playBtn:hover {
+      background: #ff3b6f;
+    }
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 1;}
@@ -98,9 +114,12 @@
   </div>
 
   <!-- Background Music -->
-  <audio id="bg-music" autoplay loop muted playsinline>
+  <audio id="bg-music" loop>
     <source src="https://raw.githubusercontent.com/vrruttii-gif/hbd-aani/16c7e1b45e1909d7b253d8b209e8c986693beffb/Elvis%20Presley%20-%20Can%27t%20Help%20Falling%20In%20Love%20(Official%20Audio).mp3" type="audio/mpeg">
   </audio>
+
+  <!-- Play/Pause Button -->
+  <button id="playBtn">🎵 Play Music</button>
 
   <script>
     // Countdown Timer
@@ -123,13 +142,27 @@
       }
     }, 1000);
 
-    // Try to autoplay + unmute after load
+    // Music autoplay attempt
+    const audio = document.getElementById("bg-music");
+    const playBtn = document.getElementById("playBtn");
+
     window.addEventListener("DOMContentLoaded", () => {
-      const audio = document.getElementById("bg-music");
-      audio.muted = false;
-      audio.play().catch(err => {
-        console.log("Autoplay blocked:", err);
+      audio.play().then(() => {
+        playBtn.textContent = "⏸ Pause Music";
+      }).catch(() => {
+        console.log("Autoplay blocked, waiting for user click.");
       });
+    });
+
+    // Manual play/pause button
+    playBtn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        playBtn.textContent = "⏸ Pause Music";
+      } else {
+        audio.pause();
+        playBtn.textContent = "🎵 Play Music";
+      }
     });
   </script>
 </body>
